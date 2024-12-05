@@ -17,48 +17,65 @@
     body {
       font-family: 'Arial', sans-serif;
       line-height: 1.6;
-      color: #333;
+      color: #fff;
       text-align: center;
       overflow-x: hidden;
+      background: #111; /* Dark background for contrast */
     }
 
+    /* Full Page Section */
     section {
-      padding: 50px 20px;
+      padding: 100px 20px;
+      position: relative;
     }
 
+    /* Carousel Section */
+    .carousel-inner img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    /* Contact Card */
     .contact-card {
-      background: #f4f4f4;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+      border-radius: 10px;
+      margin: 40px auto;
       padding: 30px;
       max-width: 600px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .contact-card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
     }
 
     .contact-card h2 {
-      margin-bottom: 15px;
-      font-size: 2rem;
       color: #007bff;
+      font-size: 2rem;
+      margin-bottom: 15px;
     }
 
     .contact-card p {
-      margin: 10px 0;
+      color: #333;
       font-size: 1.1rem;
-      color: #555;
+      margin: 10px 0;
     }
 
     .stay-tuned {
       background-color: #f8f9fa;
-      padding: 20px;
+      padding: 25px;
       font-size: 1.6rem;
       color: #007bff;
       font-weight: bold;
+      border-radius: 8px;
       transition: transform 0.3s ease;
     }
 
@@ -66,21 +83,10 @@
       transform: scale(1.05);
     }
 
-    .carousel-inner img {
-      max-height: 450px; /* Set image height */
-      object-fit: cover;
-      width: 100%;
-      transition: transform 1s ease-in-out;
-    }
-
-    .carousel-item {
-      animation: fadeIn 2s ease-in-out forwards;
-    }
-
-    /* Mobile styles */
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
       .carousel-inner img {
-        max-height: 300px; /* Resize for smaller devices */
+        height: 250px; /* Resize for smaller devices */
       }
 
       .contact-card {
@@ -94,9 +100,25 @@
       100% { opacity: 1; }
     }
 
+    /* Background cover for full-page effect */
+    .full-page-background {
+      background-image: url('background-image.jpg'); /* Add a background image */
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- Full Background Cover -->
+  <div class="full-page-background"></div>
 
   <!-- Carousel Section -->
   <section>
@@ -112,6 +134,7 @@
     </div>
   </section>
 
+  <!-- Contact Us Section -->
   <section>
     <div class="contact-card animate__animated animate__fadeInUp">
       <h2>Contact Us</h2>
@@ -121,8 +144,10 @@
   </section>
 
   <!-- Stay Tuned Section -->
-  <section class="stay-tuned animate__animated animate__fadeInUp">
-    <p>Stay tuned, we will be live soon!</p>
+  <section>
+    <div class="stay-tuned animate__animated animate__fadeInUp">
+      <p>Stay tuned, we will be live soon!</p>
+    </div>
   </section>
 
   <!-- Bootstrap JS (required for carousel functionality) -->
